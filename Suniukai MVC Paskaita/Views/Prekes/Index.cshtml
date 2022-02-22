@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GeliuEshop_projektas.Models.Preke>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+ <script src="~/js/site.js" asp-append-version="true"></script>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vardas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nuotrauka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aprasymas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kaina)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vardas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nuotrauka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aprasymas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kaina)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <button onclick="pridetiPrekeKrepseliui()">Pirkti</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
